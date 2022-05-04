@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="t1"></p>
+    <p id="t2"></p>
+    <p id="t3"></p>
+    <script>
+        function bar() {
+    var foo = 0;
+   function foo() {}
+   document.getElementById('t1').innerHTML=typeof foo
+    return typeof foo;
+}
+
+bar(); // What does this return? Why?
+
+function baz() {
+    var foo;
+    function foo() {}
+    //return typeof foo;
+    document.getElementById('t2').innerHTML=typeof foo
+    console.log(typeof foo)
+}
+
+baz(); // How about now?
+
+function quux() {
+    var foo = 0;
+    var foo = function () {} //foo is re initialized
+    document.getElementById('t3').innerHTML=typeof foo
+    return typeof foo;
+}
+
+quux(); // How about now?
+    </script>
+</body>
+</html>
